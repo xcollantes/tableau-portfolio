@@ -1,0 +1,2003 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10300.17.0728.2252                               -->
+<workbook original-version='10.3' source-build='10.3.2 (10300.17.0728.2252)' source-platform='win' version='10.3' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Systemic Risk Indicator and the Cavs' inline='true' name='federated.0lqamut0vkdt4p1aixx2v1dpq7ye' version='10.3'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='clean-SystemicRisk' name='textscan.07idaf601nsb3b1f8xsn402oerzn'>
+            <connection class='textscan' directory='C:/Users/Xavier/Desktop/Data-cleaner' filename='clean-SystemicRisk.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='cavs_data' name='textscan.0grwh5g0ltrjgc11alysz163k5xp'>
+            <connection class='textscan' directory='C:/Users/Xavier/Desktop/Data-cleaner' filename='cavs_data.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='left' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[Systemic Risk Indicator (Fed)].[Year]' />
+              <expression op='[Caveliers NBA Data].[Season Start]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.07idaf601nsb3b1f8xsn402oerzn' name='Systemic Risk Indicator (Fed)' table='[clean-SystemicRisk#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='date' name='Label' ordinal='0' />
+              <column datatype='integer' date-parse-format='yyyy' name='Year' ordinal='1' />
+              <column datatype='real' name='Average Distance-to-Default (ADD)' ordinal='2' />
+              <column datatype='real' name='Portfolio Distance-to-Default (PDD)' ordinal='3' />
+              <column datatype='real' name='PDD-ADD (Spread)' ordinal='4' />
+              <column datatype='real' name='KBE ETF' ordinal='5' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0grwh5g0ltrjgc11alysz163k5xp' name='Caveliers NBA Data' table='[cavs_data#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='Season' ordinal='0' />
+              <column datatype='integer' name='Season Start' ordinal='1' />
+              <column datatype='string' name='Lg' ordinal='2' />
+              <column datatype='string' name='Team' ordinal='3' />
+              <column datatype='integer' name='W' ordinal='4' />
+              <column datatype='integer' name='L' ordinal='5' />
+              <column datatype='real' name='W/L%' ordinal='6' />
+              <column datatype='integer' name='Finish' ordinal='7' />
+              <column datatype='real' name='SRS' ordinal='8' />
+              <column datatype='real' name='Pace' ordinal='9' />
+              <column datatype='real' name='Rel_Pace' ordinal='10' />
+              <column datatype='real' name='ORtg' ordinal='11' />
+              <column datatype='real' name='Rel_ORtg' ordinal='12' />
+              <column datatype='real' name='DRtg' ordinal='13' />
+              <column datatype='real' name='Rel_DRtg' ordinal='14' />
+              <column datatype='string' name='Playoffs' ordinal='15' />
+              <column datatype='string' name='Coaches' ordinal='16' />
+              <column datatype='string' name='Top WS' ordinal='17' />
+            </columns>
+          </relation>
+        </relation>
+        <refresh increment-key='' incremental-updates='false' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Label</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Label]</local-name>
+            <parent-name>[Systemic Risk Indicator (Fed)]</parent-name>
+            <remote-alias>Label</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;date&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[Systemic Risk Indicator (Fed)]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Average Distance-to-Default (ADD)</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Average Distance-to-Default (ADD)]</local-name>
+            <parent-name>[Systemic Risk Indicator (Fed)]</parent-name>
+            <remote-alias>Average Distance-to-Default (ADD)</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Portfolio Distance-to-Default (PDD)</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Portfolio Distance-to-Default (PDD)]</local-name>
+            <parent-name>[Systemic Risk Indicator (Fed)]</parent-name>
+            <remote-alias>Portfolio Distance-to-Default (PDD)</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PDD-ADD (Spread)</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[PDD-ADD (Spread)]</local-name>
+            <parent-name>[Systemic Risk Indicator (Fed)]</parent-name>
+            <remote-alias>PDD-ADD (Spread)</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>KBE ETF</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[KBE ETF]</local-name>
+            <parent-name>[Systemic Risk Indicator (Fed)]</parent-name>
+            <remote-alias>KBE ETF</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Systemic Risk Indicator (Fed)]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Season</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Season]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>Season</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Season Start</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Season Start]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>Season Start</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Lg</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Lg]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>Lg</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Team</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Team]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>Team</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>W</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[W]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>W</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>L</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[L]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>L</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>W/L%</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[W/L%]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>W/L%</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Finish</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Finish]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>Finish</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SRS</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[SRS]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>SRS</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Pace</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Pace]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>Pace</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Rel_Pace</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Rel_Pace]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>Rel_Pace</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ORtg</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ORtg]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>ORtg</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Rel_ORtg</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Rel_ORtg]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>Rel_ORtg</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DRtg</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[DRtg]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>DRtg</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Rel_DRtg</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Rel_DRtg]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>Rel_DRtg</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Playoffs</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Playoffs]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>Playoffs</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Coaches</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Coaches]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>Coaches</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Top WS</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Top WS]</local-name>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias>Top WS</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Caveliers NBA Data]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='D Rtg' datatype='real' name='[DRtg]' role='measure' type='quantitative' />
+      <column caption='Loss' datatype='integer' name='[L]' role='measure' type='quantitative' />
+      <column caption='League' datatype='string' hidden='true' name='[Lg]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='O Rtg' datatype='real' name='[ORtg]' role='measure' type='quantitative' />
+      <column datatype='real' name='[PDD-ADD (Spread)]' role='measure' type='quantitative' />
+      <column caption='Rel DRtg' datatype='real' name='[Rel_DRtg]' role='measure' type='quantitative' />
+      <column caption='Rel ORtg' datatype='real' name='[Rel_ORtg]' role='measure' type='quantitative' />
+      <column caption='Rel Pace' datatype='real' name='[Rel_Pace]' role='measure' type='quantitative' />
+      <column datatype='string' hidden='true' name='[Team]' role='dimension' type='nominal' />
+      <column datatype='string' name='[Top WS]' role='dimension' type='nominal' />
+      <column datatype='real' name='[W/L%]' role='measure' type='quantitative' />
+      <column caption='Wins' datatype='integer' name='[W]' role='measure' type='quantitative' />
+      <column-instance column='[W]' derivation='Attribute' name='[attr:W:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Top WS]' derivation='Count' name='[cnt:Top WS:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[W]' derivation='Count' name='[cnt:W:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[W]' derivation='CountD' name='[ctd:W:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Top WS]' derivation='Min' name='[min:Top WS:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Top WS]' derivation='None' name='[none:Top WS:nk]' pivot='key' type='nominal' />
+      <column-instance column='[W]' derivation='None' name='[none:W:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[PDD-ADD (Spread)]' derivation='Sum' name='[sum:PDD-ADD (Spread):qk]' pivot='key' type='quantitative' />
+      <column-instance column='[W/L%]' derivation='Sum' name='[sum:W/L%:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[W]' derivation='Sum' name='[sum:W:qk]' pivot='key' type='quantitative' />
+      <extract count='-1' enabled='true' units='records'>
+        <connection class='dataengine' dbname='C:/Users/Xavier/OneDrive/Documents/Systemic Risk Indicator and the Cavs.tde' schema='Extract' tablename='Extract' update-time='08/28/2017 07:34:24 AM'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <calculations>
+            <calculation column='[Number of Records]' formula='1' />
+          </calculations>
+          <refresh increment-key='' incremental-updates='false'>
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='1763' timestamp-start='2017-08-28 07:34:24.814' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Average Distance-to-Default (ADD)</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Average Distance-to-Default (ADD)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Average Distance-to-Default (ADD)</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Systemic Risk Indicator (Fed)</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1716</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>7332.2579999999907</statistic>
+                <statistic aggregation='Avg' datatype='real'>4.1589665343165008</statistic>
+                <statistic aggregation='Min' datatype='real'>1.5853999999999999</statistic>
+                <statistic aggregation='Max' datatype='real'>5.5030999999999999</statistic>
+                <statistic aggregation='Stdev' datatype='real'>0.82759190219975842</statistic>
+                <statistic aggregation='StdevP' datatype='real'>0.82735715764753937</statistic>
+                <statistic aggregation='Var' datatype='real'>0.68490835658661453</statistic>
+                <statistic aggregation='VarP' datatype='real'>0.68451986631061523</statistic>
+                <statistic aggregation='Count' datatype='integer'>1763</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>31701.424167280013</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Coaches</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Coaches]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Coaches</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>8</approx-count>
+              <scale>1</scale>
+              <width>1073741823</width>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;B. Scott (19-63)&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;T. Lue (51-31)&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>1607</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>DRtg</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[DRtg]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>DRtg</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>173694.99999999767</statistic>
+                <statistic aggregation='Avg' datatype='real'>108.0864965774721</statistic>
+                <statistic aggregation='Min' datatype='real'>104.5</statistic>
+                <statistic aggregation='Max' datatype='real'>111.8</statistic>
+                <statistic aggregation='Stdev' datatype='real'>2.1252524538355395</statistic>
+                <statistic aggregation='StdevP' datatype='real'>2.1245911025035666</statistic>
+                <statistic aggregation='Var' datatype='real'>4.5166979925339819</statistic>
+                <statistic aggregation='VarP' datatype='real'>4.5138873528373216</statistic>
+                <statistic aggregation='Count' datatype='integer'>1607</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>18781337.839999776</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Finish</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[Finish]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Finish</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>4507.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>2.8046048537647792</statistic>
+                <statistic aggregation='Min' datatype='integer'>1</statistic>
+                <statistic aggregation='Max' datatype='integer'>5</statistic>
+                <statistic aggregation='Stdev' datatype='real'>1.826647557052268</statistic>
+                <statistic aggregation='StdevP' datatype='real'>1.826079127738037</statistic>
+                <statistic aggregation='Var' datatype='real'>3.336641297685019</statistic>
+                <statistic aggregation='VarP' datatype='real'>3.3345649807605104</statistic>
+                <statistic aggregation='Count' datatype='integer'>1607</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>17999.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>KBE ETF</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[KBE ETF]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>KBE ETF</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Systemic Risk Indicator (Fed)</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1143</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>52908.195700000018</statistic>
+                <statistic aggregation='Avg' datatype='real'>30.01032087351107</statistic>
+                <statistic aggregation='Min' datatype='real'>16.73</statistic>
+                <statistic aggregation='Max' datatype='real'>46.560000000000002</statistic>
+                <statistic aggregation='Stdev' datatype='real'>6.6702458624256629</statistic>
+                <statistic aggregation='StdevP' datatype='real'>6.668353862426625</statistic>
+                <statistic aggregation='Var' datatype='real'>44.49217986520668</statistic>
+                <statistic aggregation='VarP' datatype='real'>44.466943234540082</statistic>
+                <statistic aggregation='Count' datatype='integer'>1763</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>1666187.1507180133</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>2</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>L</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[L]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>L</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>65719.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>40.895457373988798</statistic>
+                <statistic aggregation='Min' datatype='integer'>25</statistic>
+                <statistic aggregation='Max' datatype='integer'>63</statistic>
+                <statistic aggregation='Stdev' datatype='real'>12.853723381045363</statistic>
+                <statistic aggregation='StdevP' datatype='real'>12.849723467028783</statistic>
+                <statistic aggregation='Var' datatype='real'>165.21820475643221</statistic>
+                <statistic aggregation='VarP' datatype='real'>165.11539317911021</statistic>
+                <statistic aggregation='Count' datatype='integer'>1607</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>2952949.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Label</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Label]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Label</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Systemic Risk Indicator (Fed)</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>1763</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Min' datatype='date'>#2010-08-16#</statistic>
+                <statistic aggregation='Max' datatype='date'>#2017-08-16#</statistic>
+                <statistic aggregation='Count' datatype='integer'>1763</statistic>
+                <statistic aggregation='Median' datatype='date'>#2014-02-14#</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>0</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (unique)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;date&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Number of Records</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[Number of Records]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Number of Records</remote-alias>
+              <ordinal>7</ordinal>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>1763.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>1.0</statistic>
+                <statistic aggregation='Min' datatype='integer'>1</statistic>
+                <statistic aggregation='Max' datatype='integer'>1</statistic>
+                <statistic aggregation='Stdev' datatype='real'>0.0</statistic>
+                <statistic aggregation='StdevP' datatype='real'>0.0</statistic>
+                <statistic aggregation='Var' datatype='real'>0.0</statistic>
+                <statistic aggregation='VarP' datatype='real'>0.0</statistic>
+                <statistic aggregation='Count' datatype='integer'>1763</statistic>
+                <statistic aggregation='Median' datatype='integer'>1</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>1763.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteMetadata (ordered)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ORtg</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[ORtg]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ORtg</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>172295.20000000123</statistic>
+                <statistic aggregation='Avg' datatype='real'>107.21543248288813</statistic>
+                <statistic aggregation='Min' datatype='real'>101.09999999999999</statistic>
+                <statistic aggregation='Max' datatype='real'>113.59999999999999</statistic>
+                <statistic aggregation='Stdev' datatype='real'>4.5860227625690992</statistic>
+                <statistic aggregation='StdevP' datatype='real'>4.5845956510478265</statistic>
+                <statistic aggregation='Var' datatype='real'>21.031604778801913</statistic>
+                <statistic aggregation='VarP' datatype='real'>21.018517283606641</statistic>
+                <statistic aggregation='Count' datatype='integer'>1607</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>18506481.140000597</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>PDD-ADD (Spread)</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[PDD-ADD (Spread)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>PDD-ADD (Spread)</remote-alias>
+              <ordinal>9</ordinal>
+              <family>Systemic Risk Indicator (Fed)</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1663</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>1026.9175</statistic>
+                <statistic aggregation='Avg' datatype='real'>0.58248298355076578</statistic>
+                <statistic aggregation='Min' datatype='real'>-0.45440000000000003</statistic>
+                <statistic aggregation='Max' datatype='real'>2.5110999999999999</statistic>
+                <statistic aggregation='Stdev' datatype='real'>0.44267295192540124</statistic>
+                <statistic aggregation='StdevP' datatype='real'>0.44254738875398425</statistic>
+                <statistic aggregation='Var' datatype='real'>0.19595934236634857</statistic>
+                <statistic aggregation='VarP' datatype='real'>0.19584819129297004</statistic>
+                <statistic aggregation='Count' datatype='integer'>1763</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>943.44233050999969</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Pace</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Pace]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Pace</remote-alias>
+              <ordinal>10</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>149578.40000000471</statistic>
+                <statistic aggregation='Avg' datatype='real'>93.079278158061427</statistic>
+                <statistic aggregation='Min' datatype='real'>91.299999999999997</statistic>
+                <statistic aggregation='Max' datatype='real'>96.200000000000003</statistic>
+                <statistic aggregation='Stdev' datatype='real'>1.4909106016233533</statistic>
+                <statistic aggregation='StdevP' datatype='real'>1.4904466493477275</statistic>
+                <statistic aggregation='Var' datatype='real'>2.2228144220329091</statistic>
+                <statistic aggregation='VarP' datatype='real'>2.2214312145518678</statistic>
+                <statistic aggregation='Count' datatype='integer'>1607</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>13926219.339999998</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Playoffs</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Playoffs]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Playoffs</remote-alias>
+              <ordinal>11</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <scale>1</scale>
+              <width>1073741823</width>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;Lost Finals&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;Won Finals&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>756</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (sort-position)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (sort-sense)'>&quot;asc&quot;</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Portfolio Distance-to-Default (PDD)</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Portfolio Distance-to-Default (PDD)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Portfolio Distance-to-Default (PDD)</remote-alias>
+              <ordinal>12</ordinal>
+              <family>Systemic Risk Indicator (Fed)</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1721</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>8359.1750999999786</statistic>
+                <statistic aggregation='Avg' datatype='real'>4.7414492909812695</statistic>
+                <statistic aggregation='Min' datatype='real'>1.6800000000000002</statistic>
+                <statistic aggregation='Max' datatype='real'>7.7390999999999996</statistic>
+                <statistic aggregation='Stdev' datatype='real'>1.1814427430766321</statistic>
+                <statistic aggregation='StdevP' datatype='real'>1.1811076295418588</statistic>
+                <statistic aggregation='Var' datatype='real'>1.3958069551684369</statistic>
+                <statistic aggregation='VarP' datatype='real'>1.3950152325619887</statistic>
+                <statistic aggregation='Count' datatype='integer'>1763</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>42094.016706089969</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Rel_DRtg</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Rel_DRtg]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Rel_DRtg</remote-alias>
+              <ordinal>13</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>2722.6999999999207</statistic>
+                <statistic aggregation='Avg' datatype='real'>1.6942750466707659</statistic>
+                <statistic aggregation='Min' datatype='real'>-1.8999999999999999</statistic>
+                <statistic aggregation='Max' datatype='real'>4.5</statistic>
+                <statistic aggregation='Stdev' datatype='real'>2.0765888499710785</statistic>
+                <statistic aggregation='StdevP' datatype='real'>2.0759426421290832</statistic>
+                <statistic aggregation='Var' datatype='real'>4.3122212518242069</statistic>
+                <statistic aggregation='VarP' datatype='real'>4.3095378534098794</statistic>
+                <statistic aggregation='Count' datatype='integer'>1607</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>11538.430000000037</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Rel_ORtg</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Rel_ORtg]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Rel_ORtg</remote-alias>
+              <ordinal>14</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>1322.9000000000153</statistic>
+                <statistic aggregation='Avg' datatype='real'>0.82321095208463924</statistic>
+                <statistic aggregation='Min' datatype='real'>-5.0999999999999996</statistic>
+                <statistic aggregation='Max' datatype='real'>5.5</statistic>
+                <statistic aggregation='Stdev' datatype='real'>3.9665494406895188</statistic>
+                <statistic aggregation='StdevP' datatype='real'>3.9653151013284691</statistic>
+                <statistic aggregation='Var' datatype='real'>15.733514465434332</statistic>
+                <statistic aggregation='VarP' datatype='real'>15.723723852823609</statistic>
+                <statistic aggregation='Count' datatype='integer'>1607</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>26357.050000000323</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Rel_Pace</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Rel_Pace]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Rel_Pace</remote-alias>
+              <ordinal>15</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>-1122.9000000000126</statistic>
+                <statistic aggregation='Avg' datatype='real'>-0.69875544492844588</statistic>
+                <statistic aggregation='Min' datatype='real'>-2.5</statistic>
+                <statistic aggregation='Max' datatype='real'>0.90000000000000002</statistic>
+                <statistic aggregation='Stdev' datatype='real'>1.0312421963597176</statistic>
+                <statistic aggregation='StdevP' datatype='real'>1.0309212870019056</statistic>
+                <statistic aggregation='Var' datatype='real'>1.0634604675528145</statistic>
+                <statistic aggregation='VarP' datatype='real'>1.0627986999936652</statistic>
+                <statistic aggregation='Count' datatype='integer'>1607</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>2492.5499999999806</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>SRS</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[SRS]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>SRS</remote-alias>
+              <ordinal>16</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>-1776.4600000000037</statistic>
+                <statistic aggregation='Avg' datatype='real'>-1.1054511512134435</statistic>
+                <statistic aggregation='Min' datatype='real'>-8.8800000000000008</statistic>
+                <statistic aggregation='Max' datatype='real'>5.4500000000000002</statistic>
+                <statistic aggregation='Stdev' datatype='real'>5.156413026279167</statistic>
+                <statistic aggregation='StdevP' datatype='real'>5.1548084166164534</statistic>
+                <statistic aggregation='Var' datatype='real'>26.588595297581477</statistic>
+                <statistic aggregation='VarP' datatype='real'>26.572049812019824</statistic>
+                <statistic aggregation='Count' datatype='integer'>1607</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>44665.073800000486</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Season Start</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[Season Start]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Season Start</remote-alias>
+              <ordinal>17</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>3550010.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>2013.6188315371526</statistic>
+                <statistic aggregation='Min' datatype='integer'>2010</statistic>
+                <statistic aggregation='Max' datatype='integer'>2017</statistic>
+                <statistic aggregation='Stdev' datatype='real'>2.0603624744417433</statistic>
+                <statistic aggregation='StdevP' datatype='real'>2.0597780573332796</statistic>
+                <statistic aggregation='Var' datatype='real'>4.2450935260877039</statistic>
+                <statistic aggregation='VarP' datatype='real'>4.2426856454716591</statistic>
+                <statistic aggregation='Count' datatype='integer'>1763</statistic>
+                <statistic aggregation='Median' datatype='integer'>2014</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>7148374468.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Season</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Season]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Season</remote-alias>
+              <ordinal>18</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>8</approx-count>
+              <scale>1</scale>
+              <width>1073741823</width>
+              <contains-null>false</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;2010-11&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;2017-18&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>1763</statistic>
+                <statistic aggregation='Median' datatype='string'>&quot;2014-15&quot;</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Top WS</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Top WS]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Top WS</remote-alias>
+              <ordinal>19</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>8</approx-count>
+              <scale>1</scale>
+              <width>1073741823</width>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <statistics>
+                <statistic aggregation='Min' datatype='string'>&quot;K. Irving (10.4)&quot;</statistic>
+                <statistic aggregation='Max' datatype='string'>&quot;R. Sessions (4.4)&quot;</statistic>
+                <statistic aggregation='Count' datatype='integer'>1607</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>W/L%</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[W/L%]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>W/L%</remote-alias>
+              <ordinal>20</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>771.8699999999975</statistic>
+                <statistic aggregation='Avg' datatype='real'>0.48031736154324672</statistic>
+                <statistic aggregation='Min' datatype='real'>0.23200000000000001</statistic>
+                <statistic aggregation='Max' datatype='real'>0.69499999999999995</statistic>
+                <statistic aggregation='Stdev' datatype='real'>0.17021115767707154</statistic>
+                <statistic aggregation='StdevP' datatype='real'>0.17015819014578215</statistic>
+                <statistic aggregation='Var' datatype='real'>0.028971838197768905</statistic>
+                <statistic aggregation='VarP' datatype='real'>0.028953809673688154</statistic>
+                <statistic aggregation='Count' datatype='integer'>1607</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>417.2713340000015</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>W</remote-name>
+              <remote-type>16</remote-type>
+              <local-name>[W]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>W</remote-alias>
+              <ordinal>21</ordinal>
+              <family>Caveliers NBA Data</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>62023.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>38.595519601742375</statistic>
+                <statistic aggregation='Min' datatype='integer'>19</statistic>
+                <statistic aggregation='Max' datatype='integer'>57</statistic>
+                <statistic aggregation='Stdev' datatype='real'>14.822215155141722</statistic>
+                <statistic aggregation='StdevP' datatype='real'>14.817602671708071</statistic>
+                <statistic aggregation='Var' datatype='real'>219.69806210531291</statistic>
+                <statistic aggregation='VarP' datatype='real'>219.56134893661016</statistic>
+                <statistic aggregation='Count' datatype='integer'>1607</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>2746645.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint8&quot;</attribute>
+              </attributes>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Year</remote-name>
+              <remote-type>2</remote-type>
+              <local-name>[Year]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Year</remote-alias>
+              <ordinal>22</ordinal>
+              <family>Systemic Risk Indicator (Fed)</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>false</contains-null>
+              <statistics>
+                <statistic aggregation='Sum' datatype='real'>3550010.0</statistic>
+                <statistic aggregation='Avg' datatype='real'>2013.6188315371526</statistic>
+                <statistic aggregation='Min' datatype='integer'>2010</statistic>
+                <statistic aggregation='Max' datatype='integer'>2017</statistic>
+                <statistic aggregation='Stdev' datatype='real'>2.0603624744417433</statistic>
+                <statistic aggregation='StdevP' datatype='real'>2.0597780573332796</statistic>
+                <statistic aggregation='Var' datatype='real'>4.2450935260877039</statistic>
+                <statistic aggregation='VarP' datatype='real'>4.2426856454716591</statistic>
+                <statistic aggregation='Count' datatype='integer'>1763</statistic>
+                <statistic aggregation='Median' datatype='integer'>2014</statistic>
+                <statistic aggregation='SumXSqr' datatype='real'>7148374468.0</statistic>
+              </statistics>
+              <attributes>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (comparable)'>true</attribute>
+                <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;array&quot;</attribute>
+                <attribute datatype='boolean' name='DebugRemoteMetadata (distinct)'>true</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (size)'>2</attribute>
+                <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>1</attribute>
+                <attribute datatype='string' name='DebugRemoteType'>&quot;sint16&quot;</attribute>
+              </attributes>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' dim-percentage='0.282989' measure-ordering='alphabetic' measure-percentage='0.717011' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[sum:PDD-ADD (Spread):qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[sum:W/L\%:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[cnt:Top WS:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[min:Top WS:nk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:Top WS:nk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[attr:W:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[cnt:W:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[ctd:W:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:W:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[sum:W:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Cav Wins/SRI Spread'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Systemic Risk Indicator and the Cavs' name='federated.0lqamut0vkdt4p1aixx2v1dpq7ye' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0lqamut0vkdt4p1aixx2v1dpq7ye'>
+            <column datatype='real' name='[PDD-ADD (Spread)]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Season]' role='dimension' type='nominal' />
+            <column datatype='real' name='[W/L%]' role='measure' type='quantitative' />
+            <column-instance column='[Season]' derivation='None' name='[none:Season:nk]' pivot='key' type='nominal' />
+            <column-instance column='[PDD-ADD (Spread)]' derivation='Sum' name='[sum:PDD-ADD (Spread):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[W/L%]' derivation='Sum' name='[sum:W/L%:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[sum:PDD-ADD (Spread):qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[sum:W/L\%:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[sum:PDD-ADD (Spread):qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[Multiple Values]</rows>
+        <cols>([federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:Season:nk] / [federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[:Measure Names])</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Coaches/SRI Spread'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Systemic Risk Indicator and the Cavs' name='federated.0lqamut0vkdt4p1aixx2v1dpq7ye' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0lqamut0vkdt4p1aixx2v1dpq7ye'>
+            <column datatype='string' name='[Coaches]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Label]' role='dimension' type='ordinal' />
+            <column datatype='real' name='[PDD-ADD (Spread)]' role='measure' type='quantitative' />
+            <column caption='Wins' datatype='integer' name='[W]' role='measure' type='quantitative' />
+            <column-instance column='[W]' derivation='Attribute' name='[attr:W:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Coaches]' derivation='None' name='[none:Coaches:nk]' pivot='key' type='nominal' />
+            <column-instance column='[W]' derivation='None' name='[none:W:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[PDD-ADD (Spread)]' derivation='Sum' name='[sum:PDD-ADD (Spread):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Label]' derivation='Year' name='[yr:Label:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:Coaches:nk]' />
+              <size column='[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[attr:W:qk]' />
+              <path column='[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:W:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='14.547999382019043' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[sum:PDD-ADD (Spread):qk]</rows>
+        <cols>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[yr:Label:ok]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Wins/ETF'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Systemic Risk Indicator and the Cavs' name='federated.0lqamut0vkdt4p1aixx2v1dpq7ye' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0lqamut0vkdt4p1aixx2v1dpq7ye'>
+            <column datatype='real' name='[KBE ETF]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Label]' role='dimension' type='ordinal' />
+            <column caption='Wins' datatype='integer' name='[W]' role='measure' type='quantitative' />
+            <column-instance column='[W]' derivation='None' name='[none:W:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[KBE ETF]' derivation='Sum' name='[sum:KBE ETF:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Label]' derivation='Year-Trunc' name='[tyr:Label:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='refline'>
+            <format attr='stroke-color' id='refline0' value='#000000' />
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <text column='[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[sum:KBE ETF:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:W:qk]</rows>
+        <cols>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[tyr:Label:qk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 1'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='100000' id='6' param='horz' type='layout-flow' w='100000' x='0' y='0'>
+            <zone h='100000' id='4' type='layout-basic' w='93089' x='0' y='0'>
+              <zone h='50000' id='1' name='Wins/ETF' w='46545' x='46544' y='0' />
+              <zone h='50000' id='3' name='Coaches/SRI Spread' w='93089' x='0' y='50000' />
+              <zone h='50000' id='9' name='Cav Wins/SRI Spread' w='46544' x='0' y='0' />
+            </zone>
+            <zone fixed-size='160' h='100000' id='5' is-fixed='true' param='vert' type='layout-flow' w='6911' x='93089' y='0'>
+              <zone h='21517' id='7' name='Coaches/SRI Spread' pane-specification-id='1' param='[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:Coaches:nk]' type='color' w='6911' x='93089' y='0' />
+              <zone h='14344' id='8' name='Coaches/SRI Spread' pane-specification-id='1' param='[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[attr:W:qk]' type='size' w='6911' x='93089' y='21517' />
+              <zone h='7443' id='10' name='Cav Wins/SRI Spread' pane-specification-id='0' param='[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[:Measure Names]' type='color' w='6911' x='93089' y='35861' />
+            </zone>
+          </zone>
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='2' source-height='59'>
+    <window class='worksheet' name='Cav Wins/SRI Spread'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[:Measure Names]</field>
+            <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:Season:nk]</field>
+            <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[tyr:Label:ok]</field>
+            <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[yr:Label:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='Wins/ETF'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[:Measure Names]</field>
+            <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:Coaches:nk]</field>
+            <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:Top WS:nk]</field>
+            <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:W:qk]</field>
+            <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[tyr:Label:ok]</field>
+            <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[tyr:Label:qk]</field>
+            <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[yr:Label:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='Coaches/SRI Spread'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:Coaches:nk]' type='color' />
+            <card pane-specification-id='1' param='[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[attr:W:qk]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:Coaches:nk]</field>
+            <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[yr:Label:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Cav Wins/SRI Spread'>
+          <zoom type='entire-view' />
+          <highlight>
+            <color-one-way>
+              <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[:Measure Names]</field>
+            </color-one-way>
+          </highlight>
+        </viewpoint>
+        <viewpoint name='Coaches/SRI Spread'>
+          <zoom type='entire-view' />
+          <highlight>
+            <color-one-way>
+              <field>[federated.0lqamut0vkdt4p1aixx2v1dpq7ye].[none:Coaches:nk]</field>
+            </color-one-way>
+          </highlight>
+        </viewpoint>
+        <viewpoint name='Wins/ETF'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='5' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Cav Wins/SRI Spread' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAB2HAAAdhwGP5fFl
+      AAASKUlEQVR4nO3d6W8ceV7H8XdVn26723ccH4njKz6STDJHkpmd3c2ueMAKaUFoeQAPQCMu
+      CSHEUx6h+RPgEbAPAAlYgVghAQ9gEdrRsLObSeLE8dGH23347rbdbre7ffRV9eOBPZmETYaZ
+      jttxpb4vKQ+6u9z+uJJPd1XF3/5pSimFEDalv+oAQrxKUgBha1IAYWtSAGFrUgBha6dWACtf
+      bLJydrB2/npnP7UC7O3tfaXtq+Ui8+EwwWCIw7JBPrtJMBgindlBKcVuJkU4tghA+bBAMBhk
+      cSXFk92lFPu728yGFo5vKuLhabZ2D+ueHWBzfYVIJMLiagqlTGLzYUKRKIZSKNPg8f1JiuZR
+      2oPCDtPB+We+XimTyMwkuYMqSimWkzEi4RDpTK7u+Y1KkfnIZ/u+SmFni2AwRGrreN9vpwkt
+      JAHYz2cJh8OE52OYn/1jVYqDfJaZYBSAna00kUiESDSGYX61f9A17fvU8b5fSR39vUeP9715
+      tO9nJic5NEwwymf3EKhUKjN4eZSB3lbC0SRz4RgTE+MsLUQol/aJJhZJrW8AMDM9x/DoOPuZ
+      FfKH1aMnMMrMRRfZSK0CsLmaIJVaZ7tQOpX8bp+fsbFRUktx0okwyt/NwPlGZsLLxOdDpNbT
+      lJQCDObm5tncSD3z9WvJKKlUit2iCVRpbutmdGyc+Hyw7tmLxTKDI6MMXWgnGEkwG1pgYmKc
+      5ViEcvmAaCxJKnW076umztjYON5qnlTu+MXFrDA3n2AjvQZAoK2TsbExfOYeazv7dc/vbjja
+      9+mVOBuLEYzGLga7m5gOL5FcCLO+lqZomqA5z24BGv0BSoVt7k3NMzJwHt3pRdM0fC6NiqOJ
+      m2/fwKFrAFSUhsep0+FvZLuwT7VaRTnc3L75Ni7n0Y/YdWGIkf7uU8vf3BwgND2Jr62bTHaP
+      7nN+Glq6KOY3GB6/Rnd74HhLB7feexe34+hnMYwqhmHQNzjGpZ4OADTNhb/JzeTdTzh/Yaju
+      2Rv9Acp7We4+DHF5qAfd6UHTNBrdGmWtkZvvvMnxbiXQ3MzGapyVXJWugPdo3+subt18B/fx
+      Rjom86FpQis5elob656/uTlAeOYh3uYutrN7nO8M4G3uolTYZHD0Kj2dLUcb6vrZLcB+boP7
+      M3G+eecOfl8DyqyglKJUVXicz26rawpDKQqHRTyawdLSMsWK8WqCH3t49ycEuke4Pj5Ec6Ob
+      3b0yRjGPw9P8hV+X2Uixkdl55j6lTP7nxz9m5PpNhi6er2dsAA52N/l0aoFv3PkWAZ8PZR4d
+      hhUrCo/r2W3XEiFWd02+8f4tzPLB8/e97mR04jpvjnSSWM3WPf+jTz+hqWuQG1dGjvd96Wjf
+      uwPPbKeUwvHhhx9+WPdEQKlUwuVyoZT6Un9Wk3F0j498LgtOL343LK+u42vpJODRiCUWye7s
+      4Pb66O1sZj6+iOFsYPBiL62tLWhGiVgsTjabRXd5MYoFVtbSFPYP8fsDeFyOL52lVCrhdru/
+      9PZKGcRjSVxOne1cgUuDgySjITa2coxfGSezvsT6xhbFSoUmXwOJRIJsNovm9NLb20NTYwOb
+      qVXWUmn2Dsv4PbC6WUBXZQoHJZr9TV8hy1fPv7YUB7ePQi6LcngIeDUWV9dpbO6g2asTSyTJ
+      7uRweXxspFM0+rxsZ7ZpbOngXEcbmlEifrzvNZeXYn6b1fUNdg8q9Pf34dS1+u77eAK308F2
+      Ls/FgUGWF8Kkt3YZnxgjk1phfWOTYrlMg9uFdlq/C5TJZPB6vafxrU7cwcEBPp/vVceomZXz
+      1zu78//f5GR4PB6amppO69udKKWUZbODtfPXO/uZPQcQ4jTUXADTNCiXy5jH13UNo0q1enTy
+      o5Si8tRjQpxVtR0CKcXyYhJT00ltZLl5bYgHMzH8HujoH6OQimO6G9nN5bl96220Ew4txEmp
+      rQCaxsX+AXZ3MqQ3d1iOLzDyxtt0uMs8mA5jViq8994Nwo8+JVdStLh5cpZuRVbODtbOX+/s
+      NZ8El4sHZLI5dF3DNBUOXQdNB2WiHb/kO3QN01CY5tEPYZrmSeU+VVbODtbOX+/sNRVAmSbb
+      O7v0XbjAxsYUPcODhKNRzjdW6ewZYC8dI7OzS+ZAMew7+t82XddxOBwnHP90WDk7WDt/vbPX
+      VABN12hpbmJrK8Pbt27R4HExrns4rOpcaG9B9bSSXl/nrXfekctM4kyr8RBIo9HfQqO/5ck9
+      Tc1tfHa1VtN0unv7Xj6dEHUmL9DC1qQAwtakAMLWpADC1qQAwtakAMLWpADC1qQAwtakAMLW
+      pADC1qQAwtakAMLWaiyA4nAvz8JClO1cAaVM1leWSCytYJiKaqVIfGGBXOHgZNMKccJqK4CC
+      7Z1dBgaHCM1Os7kYJq8aORdw8XguyuOHj+i+2E9k5jFVaw4iCZuoeSSyt6+PjdUEuqeJQPs5
+      orMxDtzQeXGE9UQOn8dNh9/BzoFJm1dhGAbVavWE458OK2cHa+evd/Ya5wEU0dlHlNytfO3W
+      DRaDU1wanaDDXWE2vg7a0ct+qaLwuDQcjqOpHqfz1D6G6ERZOTtYO3+9s9c8EplYSTE43EQs
+      vkh7RwfJ1SXyDpP2tnO4qi5mgyHKTj9+t3wmhDi7Tu2jEQuFAn6//zS+1Ymzcnawdv56Z5fL
+      oMLWpADC1qQAwtakAMLWpADC1qQAwtakAMLWpADC1qQAwtakAMLWpADC1qQAwtakAMLWal4k
+      b3UpyV6xjOZq4PLgRRILESqmRs+FAczDLKsbWRqamhnql3UCxNlV8ztAW1c3o6OjbK4vk0vF
+      KLvbGRsbI9DoJhxNMjExQT69wqFxknGFOFk1j0R63U6mHtzlXO8Am+lF9t2KuZl1vM0daJoT
+      XdMI+HQKhwbuBhnLe5WsnP9sjkQqxf2ffsLw9Vt0NDeytVQAvZ3LPZe493AWMDCVYvfApLfB
+      gcMhY3mvkpXzn82RSGWiuz1sp1fZyXgYGhwlNx8hHEkzOj6Bs1IgHArT2t2P15qLEwqbkJHI
+      L8HK2cHa+WUkUog6kgIIW5MCCFuTAghbkwIIW5MCCFuTAghbkwIIW5MCCFuTAghbkwIIW5MC
+      CFuTAghbq3GRPEUsEiISiXBv8jEAlcM8P/zBDzkEFqMhZoNBJh/PImvkibOs5neAodFxLo8M
+      spfPgVKEwgv09/eiMElt57l25QoNxj6FslRAnF01j0Qe5Da5/zjCWzdvs72exNPWA6ml44eP
+      euV2apQrCsNhyljeK2Tl/GdyJFIpk/uP5vjGt76NU9fY2nOjlfKspVM0pjK4NIP9YpnMnsGA
+      T8ehyVjeq2Tl/GdyJBLgQl838YUoutPD0NAlOrvhfGcnjW1taJ0tLC0tc+X6mzhlkUhxhtVU
+      AE3TGb48/nP3N7e1HT+rm8Gh4ZcKJsRpkMugwtakAMLWpADC1qQAwtakAMLWpADC1qQAwtak
+      AMLWpADC1qQAwtakAMLWpADC1mougFEpsbiYZP+wDCh2sxlW1lIoBco0WF1e4rBkzd9BF/ZR
+      80jk4tIyXee7eTh5n4P8DrlDg4BHMTU3z+PJ+/ha2pmafIB5woGFOEk1T4QNDY+wu53CwIUv
+      0MZFv0lo6h6BzgEyeznaAk10NulkD0xaPQrDMDAMay4ZaeXsYO389c5e80DMUnSO1B7c+fot
+      lFnhk48/ZvDqO/R0BsisHY1GVg2F06Gh6xq6rqPr1jzlsHJ2sHb+emevbSTSNJgOLTBx9RrJ
+      xRU8lQxlTxuHuxkyDo32QAOhSIS84WHMo6EBmqahadYcD7NydrB2/npnr2mRPKUUpvn50b2u
+      a5jm0dN8Ftg0TXRdfxJeFmp7daycv97ZaxyJ1HA4nl3/9P/c/LnHhTiLrHlgKMQJkQIIW5MC
+      CFuTAghbkwIIW5MCCFuTAghbkwIIW5MCCFuTAghbkwIIW5MCCFursQCKSumQ2MIC+f0iSil2
+      ttKspbdQCkyzymIifjwuKcTZVeNIJKyupegfGODxowfsZ9dIbOzjKGVZWNlk6sF92s73Mv1w
+      EkPWyBNnWM0jkZcGBtjZXEXpDawtrzIwfpsWZ4XFqRkwHQR8Xjr9DnYOPx+JlIXaXg0r5386
+      +3a+yPr23ks/58D5AE0NbqDmkUhFMjJDtuLhm++/Q3LuAZWqgXJU0TUnpnY0w1mpKlxODYdD
+      l4XaXiEr5386++T8Ot//90cv/Zx/+sEd3r7cDdR4CKRMk2A0gd+jEYsv0jc0SmLuETPTs/QP
+      X+ZcayOzwRB7NBBwW3MUT9hDbRNhuoPv/sqvPnPfe+/e+vxGy9WXCiXEaZHLoMLWpADC1qQA
+      wtakAMLWpADC1qQAwtakAMLWpADC1qQAwtakAMLWpADC1qQAwtakAMLWai5AubjPT+/eB8Cs
+      lgkHg4RCIfaKFfZyGeaCQZbW0icWVIh6qLkA8dgC2VwOgFQiiPfcJUYGewkGI8yGokxMTJBZ
+      SVKSZSLFGVbzmND41Rtsbn8MQGffAD/59AFpF1y68hZL8xF0TaOlUWf3wKC94fUZy7MiK+d/
+      OvvTy3K9DPOp5zyROblEOML1d79Om6vC3YdBdAyUUhQOTbobHDgcr89YnhVZOf/T2U9qtUj9
+      qeesba8oxfJiHNM0iS7EuTA6RiwWYUNXjFwexVUtEAyFaezoxSdLhYkzrOZPhbg4MMzFgeEn
+      d11/o+WpDfy0nut5yWhC1J9cBhW2JgUQtiYFELYmBRC2JgUQtiYFELYmBRC2JgUQtiYFELYm
+      BRC2JgUQtiYFELYmBRC29oUFyGXW+dF//BfxeIyDyrPDCOtLC/zDP/8rAMqoMD31kEgkQn6/
+      xGoiymwwyOPZMLJGnjjLXlgAZVb427/5e5bCM6TW4jyMrD3zuNvXQm/n0a9AbyyG8bRd4Hx3
+      L36fm5WNLNeuXMFZ2mWvIhUQZ9cXzANoQJXCfokHj4L84vduPfNoR2cn2vHyX7u7Bcr+Vgo7
+      eRZX19G0o1553RrFssKnm6/NWJ4VWTn/qxuJ1Bz89u/8LvcnH9F9aYzxvpYXbtpz4QKxjEFX
+      XxfpcBIHBsVKle09g0s+HYf2+ozlWZGV89d7JPLFz6jK/Ms//SOhSJQf/PVfEF7OPPWYYjkZ
+      o6WlhehCnIb2C/S2OFlc2+T6G1d4880brCQTDE9cwymLRIoz7AveAdz85u//IQDzn/6I3H75
+      qceORyKf2vxcdx/nnjxrAyOXL594WCFO2osLoMr83ff/inwFDBN+44Nvn2IsIU7HcwtQLGSZ
+      mptn9MbNzzfU5BOuxOvnBe8AGpomB+/i9ffck2Cvv5Xbt29T3k3zs5/d5d69e+QKh6edTYi6
+      e+E5gDJLzETXafB6eXOkhzLyCVfi9fPCy6Ca7uaNG9d4e6KfjyYj+L3u08wlxKl47juAMkv8
+      5Z/9Oe0DE7z/tXf5kzu/hJwSiNfRcwug6R5+74/+mOTCPB/957+RXFzhex/8ARP95563uRCW
+      9dxDIKUU21tpwuEwG1tZ2s730tLoPe1sQtTd80+CVZmP/vsjJm6+z3d++ddwu+QEWLyeXngI
+      9Ou/9cEpRxHi9MlEmLC1mgugTIP5hdjnt5XJfDBMlaMF9Obn58ns5E8ioxB1U3MB5h5PMjUT
+      enJ7YyVBIrFCGcXjqWkuDQ4RD88hA2HiLKt5SuLaW7fJFo4WyTMrRVa29unpCAAmJg48Lift
+      TQ5yByZtXvXaTCVZkZXzW2KRvFhoGpxNrC2naExlUMej8Idlky63hsOhvzZTSVZk5fxnepG8
+      vb09ogtxBq/dxqnDvKrS292Fr1xgNhjCbGilySX/hSzOrhNbJA9g9MZ1ABr6h5El8oQVyGVQ
+      YWtSAGFrUgBha1IAYWtSAGFrUgBha1IAYWtSAGFrUgBha1IAYWtSAGFrUgBha1IAYWs1/5J4
+      PrvJx/dn+e53foHyQYGF5DIog86eARzlHOvbedzeRkaHLp1gXCFOVs3vANlcngb30ZfrLi/j
+      4xMMD/QRTySJJle5OjHB4XaKA2sOIgmbqPkd4NLgMEsrRytHOl0uMutLzMVXuX37JtMPH6Np
+      Gv4Gnb2igafh9RnLsyIr57fESORhLs3cYoY7X//a0WeIqiqmUuT2Tfp8Dhz66zOWZ0VWzn+m
+      RyLdbjfRhTjNPgetAR/RaJTWji7euDpGOBzm3MUhPHKaLc6wExuJ7Op9dpMrE20vk0uIUyGv
+      z8LWpADC1v4XSHUin0fcAdYAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Coaches/SRI Spread' width='192'>
+      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
+      isRcqDgkAAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Dashboard 1' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Wins/ETF' width='192'>
+      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
+      q54lrAmVAAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
